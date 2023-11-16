@@ -2,13 +2,60 @@
 
 {% block content %}
 
-<div  class = "col-md-6 offset-md-3">
 
 {% if user.is_authenticated %}
 
 <h1> Welcome {{user.username}} </h1>
+<br/>
+
+<table class="table table-striped  table-hover table-bordered">
+  <thead class = "table-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Pais</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Email</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">ID</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    
+
+{% if records %}
+  {% for record in records %}
+    <tr>
+      <td>{{ record.nombre }}</td>
+      <td>{{ record.empresa }}</td>
+      <td>{{ record.sector }}</td>
+      <td>{{ record.pais }}</td>
+      <td>{{ record.telefono }}</td>
+      <td>{{ record.email }}</td>
+      <td>{{ record.direccion }}</td>
+      <td>{{ record.creado }}</td>
+      <td><a href = "{% url 'record' record.id %}">{{record.id}}</a></td>
+
+
+    </tr>
+  {% endfor %}
+    
+    
+{% endif %}
+
+    </tr>
+  </tbody>
+</table>
+
 
 {% else %}
+
+<div  class = "col-md-6 offset-md-3">
 
 <h1>Login</h1>
 <br/>
