@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+<h1>Add Supplier</h1>
+<br/>
+
+<form method="POST" action="{% url 'add_supplier' %}">
+    {% csrf_token %}
+
+
+    {{ form.nombre }}<br/>
+    {{ form.pais }}<br/>
+    {{ form.telefono }}<br/>
+    {{ form.email }}<br/>
+    {{ form.direccion }}<br/>
+    <div class="form-group form-check">
+      {{ form.eurohoja }}
+      <label class="form-check-label" for="{{ form.eurohoja.id_for_label }}"> {{ form.eurohoja.label }}</label>
+    </div><br/>
+    {{ form.otras_certificaciones }}
+    
+    <br/>
+    <button type="submit" class="btn btn-secondary">Add Supplier</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+</form>
+
+</div>
+
+{% endblock %}

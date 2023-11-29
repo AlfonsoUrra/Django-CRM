@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h5 class="card-header">{{ order_supplier_card.nombre }}</h5>
+    <div class="card-body">
+        <p class="card-text">
+            <strong>Proveedor: </strong>{{ order_supplier_card.proveedor }}<br/>
+            <strong>Producto: </strong>{{ order_supplier_card.producto }}<br/>
+            <strong>Tipo: </strong>{{ order_supplier_card.tipo }}<br/>
+            <strong>Formato: </strong>{{ order_supplier_card.formato }}<br/>
+            <strong>Cantidad: </strong>{{ order_supplier_card.cantidad }}<br/>
+            <strong>Precio: </strong>{{ order_supplier_card.precio }}<br/>
+            <strong>Fecha de Pedido: </strong>{{ order_supplier_card.fecha_pedido }}<br/>
+            <strong>Fecha de Entrega Prevista: </strong>{{ order_supplier_card.fecha_entrega_prevista }}<br/>
+        </p>
+    </div>
+</div>
+
+<br/><br/>
+
+<a href="{% url 'order_suppliers' %}" class="btn btn-primary">Back</a>
+<a href="{% url 'update_order_supplier' order_supplier_card.id %}" class="btn btn-primary">Modify</a>
+<a href="{% url 'delete_order_supplier' order_supplier_card.id %}" class="btn btn-danger">Delete</a>
+
+{% endblock %}

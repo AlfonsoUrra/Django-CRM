@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+<h1>Add Product</h1>
+<br/>
+
+<form method="POST" action="{% url 'add_product' %}">
+    {% csrf_token %}
+
+    {{ form.proveedor }}<br/>
+    {{ form.pais }}<br/>
+    {{ form.tipo }}<br/>
+    {{ form.producto}}<br/>
+    
+    <div class="form-group form-check">
+        {{ form.ecologico }}
+        <label class="form-check-label" for="{{ form.ecologico.id_for_label }}"> {{ form.ecologico.label }}</label>
+    </div><br/>
+    
+    {{ form.certificaciones }}<br/>
+    {{ form.pedido_minimo_kg }}<br/>
+    {{ form.precio_min }}<br/>
+    {{ form.precio_500_kg }}<br/>
+    {{ form.precio_1000_kg }}<br/>
+    {{ form.ficha_tecnica }}<br/>
+    
+    <br/>
+    <button type="submit" class="btn btn-secondary">Add Product</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+</form>
+
+</div>
+
+{% endblock %}

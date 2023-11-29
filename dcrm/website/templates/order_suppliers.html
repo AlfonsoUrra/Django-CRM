@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<br/>
+<h1>Suppliers Orders</h1>
+<br/>
+<a href="{% url 'add_order_supplier' %}" class="btn btn-primary">Add Order</a>
+<br/>
+
+<br/>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Formato</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Fecha Pedido</th>
+            <th scope="col">Fecha Entrega Prevista</th>
+            <th scope="col">ID</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        {% if records %}
+            {% for record in records %}
+                <tr>
+                    <td>{{ record.proveedor }}</td>
+                    <td>{{ record.producto }}</td>
+                    <td>{{ record.tipo }}</td>
+                    <td>{{ record.nombre }}</td>
+                    <td>{{ record.formato }}</td>
+                    <td>{{ record.cantidad }}</td>
+                    <td>{{ record.precio }}</td>
+                    <td>{{ record.fecha_pedido }}</td>
+                    <td>{{ record.fecha_entrega_prevista }}</td>
+                    <td><a href="{% url 'order_supplier_card' record.id %}">{{ record.id }}</a></td>
+
+
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
+

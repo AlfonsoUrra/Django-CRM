@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h5 class="card-header">{{ supplier_record.nombre }}<br/>
+    </h5>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>País: </strong>{{ supplier_record.pais }}<br/><br/>
+        <strong>Telefono: </strong>{{ supplier_record.telefono }}<br/><br/>
+        <strong>Email: </strong>{{ supplier_record.email }}<br/><br/>
+        <strong>Direccion: </strong>{{ supplier_record.direccion }}<br/><br/>
+        <strong>Eurohoja: </strong>{{ supplier_record.eurohoja }}<br/><br/>
+        <strong>Otras Certificaciones: </strong>{{ supplier_record.otras_certificaciones }}<br/><br/>
+        </p>
+    </div>
+  </div>
+
+  <br/><br/>
+
+  <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+  <a href="{% url 'update_supplier' supplier_record.id %}" class="btn btn-primary">Modify</a>
+  <a href="{% url 'delete_supplier' supplier_record.id %}" class="btn btn-danger">Delete</a>
+
+ 
+
+
+
+
+{% endblock %}

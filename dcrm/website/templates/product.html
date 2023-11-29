@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+  <h5 class="card-header">{{ product.tipo }}<br/>
+  </h5>
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Proveedor: </strong>{{ product.proveedor.nombre }}<br/><br/>
+      <strong>País: </strong>{{ product.pais }}<br/><br/>
+      <strong>Ecológico: </strong>{{ product.ecologico }}<br/><br/>
+      <strong>Certificaciones: </strong>{{ product.certificaciones }}<br/><br/>
+      <strong>Pedido Mínimo (kg): </strong>{{ product.pedido_minimo_kg }}<br/><br/>
+      <strong>Precio Mínimo: </strong>{{ product.precio_min }}<br/><br/>
+      <strong>Precio 500 kg: </strong>{{ product.precio_500_kg }}<br/><br/>
+      <strong>Precio 1000 kg: </strong>{{ product.precio_1000_kg }}<br/><br/>
+      <td>
+          {% if product.ficha_tecnica %}
+              <p>URL: {{ product.ficha_tecnica.url }}</p>
+              <a href="{% url 'pdf_view' pk=product.id %}" target="_blank">Ver Ficha Técnica</a>
+          {% else %}
+              No disponible
+          {% endif %}
+      </td>
+      
+    </td>
+    </p>
+  </div>
+</div>
+
+<br/><br/>
+
+<a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+<a href="{% url 'update_product' product.id %}" class="btn btn-primary">Modify</a>
+<a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Delete</a>
+
+<br/><br/>
+
+{% endblock %}

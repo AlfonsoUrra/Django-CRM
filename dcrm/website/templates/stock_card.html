@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="tab-pane fade show active" id="clients">
+    <br/>
+    <h1>Stock</h1>
+    <br/>
+
+
+            <div class="card">
+                <h5 class="card-header">{{ stock_card.producto }}</h5>
+                <div class="card-body">
+
+                    <p class="card-text">
+                        <strong>Cantidad: </strong>{{ stock_card.cantidad }}<br/>
+                        <strong>Formato: </strong>{{ stock_card.formato }}<br/>
+                        <strong>Fecha llegada prevista: </strong>{{ stock_card.fecha_llegada_prevista }}<br/>
+                        <strong>Fecha llegada: </strong>{{ stock_card.fecha_llegada_final}}<br/>
+                        <strong>Precio proveedor: </strong>{{ stock_card.precio_proveedor }}<br/>
+                        <strong>ID: </strong><a href="{% url 'stock_card' stock_card.id %}">{{ record.id }}</a>
+                    </p>
+                </div>
+            </div>
+
+</div>
+<br/>
+
+<a href="{% url 'stock' %}" class="btn btn-primary">Back</a>
+<a href="{% url 'update_stock' stock_card.id %}" class="btn btn-primary">Modify</a>
+<a href="{% url 'delete_stock' stock_card.id %}" class="btn btn-danger">Delete</a>
+
+
+{% endblock %}

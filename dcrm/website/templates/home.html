@@ -1,86 +1,163 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% if user.is_authenticated %}
+    <ul class="nav nav-tabs" id="myTabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="clients-tab" data-toggle="tab" href="#clients">Clients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="suppliers-tab" data-toggle="tab" href="#suppliers">Suppliers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="products-tab" data-toggle="tab" href="#products">Products</a>
+      </li>
+    </ul>
 
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="clients">
+        <br/>
+        <h1>Clients</h1>
+        <br/>
 
-{% if user.is_authenticated %}
-
-<h1> Welcome {{user.username}} </h1>
-<br/>
-
-<table class="table table-striped  table-hover table-bordered">
-  <thead class = "table-dark">
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Empresa</th>
-      <th scope="col">Sector</th>
-      <th scope="col">Pais</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">Email</th>
-      <th scope="col">Direccion</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">ID</th>
-
-
-
-    </tr>
-  </thead>
-  <tbody>
-    
-
-{% if records %}
-  {% for record in records %}
-    <tr>
-      <td>{{ record.nombre }}</td>
-      <td>{{ record.empresa }}</td>
-      <td>{{ record.sector }}</td>
-      <td>{{ record.pais }}</td>
-      <td>{{ record.telefono }}</td>
-      <td>{{ record.email }}</td>
-      <td>{{ record.direccion }}</td>
-      <td>{{ record.creado }}</td>
-      <td><a href = "{% url 'record' record.id %}">{{record.id}}</a></td>
-
-
-    </tr>
-  {% endfor %}
-    
-    
-{% endif %}
-
-    </tr>
-  </tbody>
-</table>
-
-
-{% else %}
-
-<div  class = "col-md-6 offset-md-3">
-
-<h1>Login</h1>
-<br/>
-
-<form method = "POST" action = "{% url 'home' %}">
-    {% csrf_token %}
-    
-      <div class="mb-3">
-
-        <input type="text" class="form-control" name = "username", placeholder = 
-        "User Name" required>
-      </div><br/>
-
-      <div class="mb-3">
-        <input type="password" class="form-control" name = 
-        "password", placeholder = "Password" required>
-        
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Sector</th>
+              <th scope="col">País</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Email</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if records %}
+              {% for record in records %}
+                <tr>
+                  <td>{{ record.nombre }}</td>
+                  <td>{{ record.empresa }}</td>
+                  <td>{{ record.sector }}</td>
+                  <td>{{ record.pais }}</td>
+                  <td>{{ record.telefono }}</td>
+                  <td>{{ record.email }}</td>
+                  <td>{{ record.direccion }}</td>
+                  <td>{{ record.creado }}</td>
+                  <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
       </div>
+      
+      <div class="tab-pane fade" id="suppliers">
+        <br/>
+        <h1>Suppliers</h1>
+        <br/>
+
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">País</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Email</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Eurohoja</th>
+              <th scope="col">Otras Certificaciones</th>
+              <th scope="col">ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if supplier %}
+              {% for supp in supplier %}
+                <tr>
+                  <td>{{ supp.nombre }}</td>
+                  <td>{{ supp.pais }}</td>
+                  <td>{{ supp.telefono }}</td>
+                  <td>{{ supp.email }}</td>
+                  <td>{{ supp.direccion }}</td>
+                  <td>{{ supp.eurohoja }}</td>
+                  <td>{{ supp.otras_certificaciones }}</td>
+                  <td><a href="{% url 'supplier' supp.id %}">{{ supp.id }}</a></td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="products">
+        <br/>
+        <h1>Products</h1>
+        <br/>
+
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Proveedor</th>
+              <th scope="col">País</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Ecológico</th>
+              <th scope="col">Certificaciones</th>
+              <th scope="col">Pedido Mínimo (kg)</th>
+              <th scope="col">Precio Mínimo</th>
+              <th scope="col">Precio 500 kg</th>
+              <th scope="col">Precio 1000 kg</th>
+              <th scope="col">Ficha Técnica</th>
+              <th scope="col">ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if product %}
+              {% for product in product %}
+                <tr>
+                  <td>{{ product.proveedor.nombre }}</td>
+                  <td>{{ product.pais }}</td>
+                  <td>{{ product.tipo }}</td>
+                  <td>{{ product.producto }}</td>
+                  <td>{{ product.ecologico }}</td>
+                  <td>{{ product.certificaciones }}</td>
+                  <td>{{ product.pedido_minimo_kg }}</td>
+                  <td>{{ product.precio_min }}</td>
+                  <td>{{ product.precio_500_kg }}</td>
+                  <td>{{ product.precio_1000_kg }}</td>
+                  <td>
+                    {% if product.ficha_tecnica %}
+                    <a href="{{ MEDIA_URL }}{{ product.ficha_tecnica }}" target="_blank">Ver Ficha Técnica</a>
+                    {% else %}
+                      No disponible
+                    {% endif %}
+                  </td>
+                  <td><a href="{% url 'product' product.id %}">{{ product.id }}</a></td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% else %}
+    <div class="col-md-6 offset-md-3">
+      <h1>Login</h1>
       <br/>
-      <button type="submit" class="btn btn-secondary">Login</button>
-    
-</form>
-
-{% endif %}
-
+      <form method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <input type="text" class="form-control" name="username" placeholder="User Name" required>
+        </div>
+        <br/>
+        <div class="mb-3">
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-secondary">Login</button>
+      </form>
+    </div>
+  {% endif %}
 {% endblock %}
-
-

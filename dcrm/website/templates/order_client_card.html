@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h5 class="card-header">{{ order_client_card.nombre }}</h5>
+    <div class="card-body">
+        <p class="card-text">
+            <strong>Proveedor: </strong>{{ order_client_card.proveedor }}<br/>
+            <strong>Producto: </strong>{{ order_client_card.producto }}<br/>
+            <strong>Empresa del Cliente: </strong>{{ order_client_card.empresa }}<br/>
+            <strong>Tipo: </strong>{{ order_client_card.tipo }}<br/>
+            <strong>Cantidad: </strong>{{ order_client_card.cantidad }}<br/>
+            <strong>Plazo: </strong>{{ order_client_card.plazo }}<br/>
+            <strong>Zona: </strong>{{ order_client_card.zona }}<br/>
+            <strong>Precio Final por Kg: </strong>{{ order_client_card.precio_final_kg }}<br/>
+            <strong>Precio Final: </strong>{{ order_client_card.precio_final }}<br/>
+            <strong>Precio Total con IVA: </strong>{{ order_client_card.precio_total_iva }}<br/>
+        </p>
+    </div>
+</div>
+
+<br/><br/>
+
+<a href="{% url 'order_suppliers' %}" class="btn btn-primary">Back</a>
+<a href="{% url 'update_order_client' order_client_card.id %}" class="btn btn-primary">Modify</a>
+<a href="{% url 'delete_order_client' order_client_card.id %}" class="btn btn-danger">Delete</a>
+
+{% endblock %}

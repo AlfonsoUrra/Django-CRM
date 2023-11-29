@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="tab-pane fade show active" id="clients">
+    <br/>
+    <h1>Clients Orders</h1>
+    <br/>
+    <a href="{% url 'add_order_client' %}" class="btn btn-primary">Add Order</a><br/>
+
+    <br/>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Empresa Cliente</th>
+                <th scope="col">Zona</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio Proveedor</th>
+                <th scope="col">Precio Almacen</th>
+                <th scope="col">Precio Distribucion</th>
+                <th scope="col">Precio por Kg</th>
+                <th scope="col">Precio Total</th>
+                <th scope="col">Precio Total con IVA</th>
+                <th scope="col">ID</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if records %}
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record.proveedor }}</td>
+                        <td>{{ record.producto }}</td>
+                        <td>{{ record.empresa }}</td>
+                        <td>{{ record.zona }}</td>
+                        <td>{{ record.cantidad }}</td>
+                        <td>{{ record.precio_proveedor }}</td>
+                        <td>{{ record.gasto_almacen }}</td>
+                        <td>{{ record.gasto_distribucion }}</td>
+                        <td>{{ record.precio_final_kg }}</td>
+                        <td>{{ record.precio_final }}</td>
+                        <td>{{ record.precio_total_iva }}</td>
+                        <td><a href="{% url 'order_client_card' record.id %}">{{ record.id }}</a></td>
+
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    
+  </div>
+
+{% endblock %}
+
