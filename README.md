@@ -111,3 +111,49 @@ Open a pull request on the main repository. Provide a clear title and descriptio
 
 Your pull request will be reviewed, and feedback may be provided. Be responsive to any comments or change requests.
 
+
+#### Known Issues
+
+1. Backend Calculations Without Ajax
+Issue:
+Currently, backend calculations are done manually using Python without utilizing Ajax for asynchronous communication. This limits the responsiveness and real-time updates of the application.
+
+Proposed Solution:
+Implement Ajax to enhance the user experience by allowing dynamic updates without the need for full-page reloads. This can be achieved by integrating asynchronous requests to the backend for seamless data processing.
+
+2. PDF Upload and Display Issue
+Issue:
+There is an existing problem with uploading and displaying PDFs. The system does not handle PDF uploads as expected, and users are unable to view the uploaded PDFs on the web interface.
+
+Proposed Solution:
+Investigate and resolve the PDF upload issue to ensure that users can successfully upload and view PDFs. This may involve checking file upload configurations, file format validations, and ensuring proper rendering on the frontend.
+
+
+#### Future Improvements
+In addition to addressing the known issues, there are plans to enhance the Django CRM project further:
+
+1. User Authentication and Authorization
+Improvement:
+Implement a robust user authentication and authorization system to control access levels and enhance the security of the application.
+
+2. Interactive Data Visualization
+Improvement:
+Explore and integrate interactive data visualization libraries or tools to provide users with insightful and visually appealing representations of their data.
+
+3. Mobile Responsiveness
+Improvement:
+Optimize the application for mobile devices to ensure a seamless and user-friendly experience on various screen sizes.
+
+4. Email Notifications
+Improvement:
+Incorporate email notifications to keep users informed about important events, updates, or changes within the CRM system.
+
+5. Improved PDF Handling
+Improvement:
+Enhance PDF handling capabilities, including better upload mechanisms, support for additional file formats, and improved rendering on the web interface.
+
+6. API Integration
+Improvement:
+Consider developing and exposing APIs to enable easier integration with other systems or external tools.
+
+Contributions and suggestions to address these issues and implement improvements are highly welcome. Feel free to contribute to the project and help make Django CRM even better! 🚀
