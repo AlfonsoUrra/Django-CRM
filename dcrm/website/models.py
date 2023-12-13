@@ -66,7 +66,7 @@ class Stock(models.Model):
     precio_proveedor = models.DecimalField(max_digits=10, decimal_places=2)  # Nuevo campo
 
     def __str__(self):
-        return str(int(self.precio_proveedor))
+        return str(float(self.precio_proveedor))
 
 
 class PedidoProveedor(models.Model):
