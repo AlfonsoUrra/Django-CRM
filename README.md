@@ -21,7 +21,7 @@ This repository provides a closer look at how our CRM simplifies customer manage
 
 #### Watch the Demo
 
-(https://www.loom.com/share/2913b60bd5784063a7d69141e9e2fcc3?sid=0b6f46a1-186f-4169-a836-65c10fc74adf)
+[![Demo Video](https://cdn.loom.com/sessions/thumbnails/2913b60bd5784063a7d69141e9e2fcc3-with-play.gif)](https://www.loom.com/share/2913b60bd5784063a7d69141e9e2fcc3?sid=0b6f46a1-186f-4169-a836-65c10fc74adf)
 
 
 #### Django CRM User Instructions
