@@ -16,15 +16,19 @@ Explore our Django-based Customer Relationship Management (CRM) project tailored
 
 - Advanced Cost Calculations: The CRM incorporates sophisticated algorithms for precise cost calculations, enhancing pricing strategies.
 
-This repository provides a closer look at how our CRM simplifies customer management with its foundational features. Whether you're a developer or a business owner, delve into the codebase to understand the core functionalities driving this Django and SQL-based CRM.
+This repository provides a closer look at how our CRM simplifies customer management with its foundational features. Whether you're a developer or a business owner, delve into the codebase to understand the core functionalities driving this Django and SQL-based CRM.<br>
 
 
-#### Watch the Demo
+ > [!NOTE]
+ > #### Watch the Demo
+ <br>
+
 
 [![Demo Video](https://cdn.loom.com/sessions/thumbnails/2913b60bd5784063a7d69141e9e2fcc3-with-play.gif)](https://www.loom.com/share/2913b60bd5784063a7d69141e9e2fcc3?sid=0b6f46a1-186f-4169-a836-65c10fc74adf)
 
 
-#### Django CRM User Instructions
+ > [!TIP]
+ > #### Django CRM User Instructions
 
 - Make sure you have Python and Django installed in your development environment before getting started.
   
@@ -42,8 +46,8 @@ This repository provides a closer look at how our CRM simplifies customer manage
   
   python manage.py createsuperuser
 
-
-#### Django CRM - Contributing Guidelines
+> [!IMPORTANT]
+>  #### Django CRM - Contributing Guidelines
 
 Thank you for considering contributing to Django CRM! Your involvement is essential for making this project better. Below are some guidelines to help you get started.
 
